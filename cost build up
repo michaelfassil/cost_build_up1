@@ -1,0 +1,45 @@
+# cost_build_up.py
+
+class ProductCost:
+    def __init__(self, product_name, quantity, unit_price_usd, unit_cbm, sea_price, forwarder_price, tax_amount, transit_cost, bank_commission):
+        self.product_name = product_name
+        self.quantity = quantity
+        self.unit_price_usd = unit_price_usd
+        self.unit_cbm = unit_cbm
+        self.sea_price = sea_price
+        self.forwarder_price = forwarder_price
+        self.tax_amount = tax_amount
+        self.transit_cost = transit_cost
+        self.bank_commission = bank_commission
+
+    def calculate_landing_cost(self):
+        total_cost = (self.unit_price_usd * self.quantity) + self.sea_price + self.forwarder_price + self.tax_amount + self.transit_cost + self.bank_commission
+        return total_cost
+
+    def display_cost_breakdown(self):
+        print(f"Cost breakdown for {self.product_name}:")
+        print(f"Quantity: {self.quantity} pcs")
+        print(f"Unit Price (USD): {self.unit_price_usd}")
+        print(f"Unit CBM: {self.unit_cbm}")
+        print(f"SEA Price: {self.sea_price}")
+        print(f"Forwarder Price: {self.forwarder_price}")
+        print(f"Tax Amount: {self.tax_amount}")
+        print(f"Transit Cost: {self.transit_cost}")
+        print(f"Bank Commission: {self.bank_commission}")
+        print(f"Total Landing Cost: {self.calculate_landing_cost()}")
+
+# Sample usage
+if __name__ == "__main__":
+    product = ProductCost(
+        product_name="Sample Product",
+        quantity=100,
+        unit_price_usd=10,
+        unit_cbm=0.05,
+        sea_price=200,
+        forwarder_price=150,
+        tax_amount=100,
+        transit_cost=50,
+        bank_commission=20
+    )
+
+    product.display_cost_breakdown()
